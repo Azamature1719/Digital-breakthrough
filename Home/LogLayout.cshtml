@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+@{
+	Layout = "BarLayout";
+}
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width" />
+		<style type = "text/css">
+			table.bar { position:absolute; top:0; left:0; width:100%; background-color: #AFAFAF}
+			td.bar { text-align: center; }
+			a.bar:link { font-size:16pt; padding:2px 15px; text-decoration:none; color:#0055A6; }
+			a.bar:visited { color:#0055A6; }
+			a.bar:hover { color:#0055A6; }
+			label.MainInfo { font-size:24pt; }
+			input.MainInfo { line-height:22pt; }
+			.FullScreen { display:table; position: absolute; top:10%; left:0; height:80%; width:100%; }
+			.VerticallAlign { display:table-cell; vertical-align:middle; }
+			.HorizontalAlign { text-align:center; margin-left:auto; margin-right:auto; width:100%; }
+			td.logoPos{ font-size:16pt; text-align:center; width:50%; }
+			td.bar{ font-size:16pt; text-align:center; width:50%; }
+			input.SendButton { font-size:16pt; }
+			td.Advertising { background-color:#0055A6; }
+		</style>
+        <title>Почта России</title>
+	</head>
+	<body>
+		<table width="100%">
+			<tr>
+				<td class="logoPos">
+					<a href='@Url.Action("Index", "Home")'><img src="~/images/PR.png" width="120" height="60" alt="logo" /></a>
+				</td>
+				<td class="bar">
+					@Html.ActionLink("Помощь", "Help", "Home", null, new {@class="bar"})
+					@Html.ActionLink("Выйти", "Exit", "Home", null, new {@class="bar"})
+				</td>
+			</tr>
+		</table>
+		<hr width="100%" size="1">
+		<table width ="100%">
+			<tr>
+				<td width="80%" >
+					<div>@RenderBody()</div>
+				</td>
+				<td class="Advertising" height="100%">
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
