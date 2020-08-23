@@ -1,0 +1,238 @@
+/*
+1. Синий - #0055A6
+2. Белый - White
+3. Голубой - #E9EDF4
+4. Желтый - #F9D643
+*/
+
+body {
+	margin: 0;
+	font-family: Roboto Medium, Arial;
+}
+
+#modal-blur {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: rgba(20, 22, 26, 0.8);
+	top: 0;
+	left: 0;
+	z-index: 100;
+	display: none;
+}
+#modal-cont {
+	position: fixed;
+	width: 900px;
+	height: 800px;
+	background: White;
+	z-index: 101;
+	top: 50px;
+	left: calc((100% - 900px) / 2);
+	display: none;
+}
+#modal-cont #heading {
+	color: #0055A6;
+	font-size: 30px;
+	margin-top: 60px;
+	text-align: center;
+}
+
+#modal-cont input {
+	display: block;
+	width: 75%;
+	height: 60px;
+	margin-top: 14px;
+	background: #E9EDF4;
+	border: none;
+	text-indent: 27px;
+	font-size: 22px;
+	color: #0055A6;
+	transition: 0.15s;
+}
+#modal-cont input:focus {
+	background: #DAE4F4;
+	transition: 0.15s;
+}
+input[name = "submit"] {
+	display: block;
+	width: 75%;
+	background: #0055A6!important;
+	color: White!important;
+	font-size: 25px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-top: 50px!important;
+	transition: 0.15s;
+	cursor: pointer;
+}
+input[name = "submit"]:hover {
+	background: #034E95!important;
+	transition: 0.15s;
+}
+
+#header {
+	width: 1200px;
+	height: 100px;
+	background: #E9EDF4;
+	margin-top: 20px;
+}
+
+#header div {
+	display: inline-block;
+	float: left;
+}
+#header #ava {
+	width: 80px;
+	height: 80px;
+	margin-top: 10px;
+	margin-left: 10px;
+	background: #0055A6;
+}
+#header #self-about p {
+	text-align: left;
+	margin-left: 30px;
+	color: #0055A6;
+}
+#header #self-about p[name = "name"] {
+	font-size: 25px;
+	font-family: Roboto Black, Arial;
+	margin-bottom: 0px;
+	margin-top: 20px;
+}
+#header #self-about p[name = "fare"] {
+	font-size: 21px;
+	font-family: Roboto Medium, Arial;
+	margin-top: -2px;
+}
+#header #self-about p[name = "fare"] span {
+	font-family: Roboto Lite, Arial;
+}
+
+#header #account {
+	float: right;
+}
+#header #account p {
+	text-align: right;
+	color: #0055A6;
+	font-size: 25px;
+	margin-right: 50px;
+}
+#header #account p[name = "acc"] {
+	font-size: 25px;
+	font-family: Roboto Black, Arial;
+	margin-bottom: 0px;
+	margin-top: 20px;
+}
+#header #account p[name = "acc-state"] {
+	font-size: 21px;
+	font-family: Roboto Medium, Arial;
+	margin-top: -2px;
+}
+
+#links {
+	width: 1200px;
+	height: 70px;
+	margin-top: 50px;
+}
+
+#links a {
+	display: inline-block;
+	width: 580px;
+	height: auto;
+	padding-top: 15px;
+	padding-bottom: 18px;
+	text-decoration: none;
+	color: White;
+	background: #0055A6;
+	font-size: 30px;
+	font-style: bold;
+	transition: 0.15s;
+}
+#links a:hover {
+	background: #034E95;
+	transition: 0.15s;
+}
+
+#links a:nth-child(1) {
+	float: left;
+}
+#links a:nth-child(2) {
+	float: right;
+}
+
+
+#my-departs {
+	color: #0055A6;
+	font-size: 25px;
+	margin-top: 60px;
+}
+
+
+.sent {
+	width: 1200px;
+	height: auto;
+	margin-top: 50px;
+}
+
+.state, .info {
+	width: 100%;
+	height: 100px;
+}
+
+.state {
+	height: 200px;
+	background: #0055A6;
+}
+
+.state div {
+	display: inline-block;
+	height: 100%;
+	margin: 0px;
+	float: left;
+}
+.state .sent-about {
+	width: 700px;
+}
+.state .sent-cur-place {
+	width: 500px;
+}
+
+.state .sent-about p {
+	text-align: left;
+	margin-bottom: 0px;
+	margin-left: 60px;
+	color: White;
+}
+.state .sent-about p.destination {
+	font-size: 35px;
+}
+.state .sent-about p.details {
+	font-size: 17px;
+	margin-top: 15px;
+	font-family: Roboto, Arial;
+}
+
+.state .sent-cur-place p {
+	font-size: 30px;
+	color: White;
+	margin-top: 72px;
+	float: left;
+}
+p span[yellow] {color: #F9D643;}
+
+
+.state:not(#sent1) {
+	margin-top: 50px;
+}
+
+.info {
+	height: 120px;
+	background: #E9EDF4;
+	margin-top: 20px;
+}
+
+.info img[name = "route"] {
+	height: 80%;
+	margin-top: 1%;
+}
+

@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+@{
+    Layout = "LogLayout";
+}
+<html>
+    <head>
+        <link rel="stylesheet" href="~/Styles/sent.css">
+	    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
+        <title>Почта России</title>
+    </head>
+    <body>
+       <!-- FORM -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#makesend').on('click', function() {
+				$('input:not(input[name = "submit"])').val("");
+				$('#modal-blur').fadeIn(150);
+				$('#modal-cont').fadeIn(150);
+			}); 
+			$('#modal-blur').on('click', function() {
+				$(this).fadeOut(150);
+				$('#modal-cont').fadeOut(150);
+			});
+		});
+	</script>
+	<div id="modal-blur"></div>
+	<div id="modal-cont">
+		<p id="heading">Отправление посылки</p>
+		<center>
+		@using(Html.BeginForm("Cabinet", "Client", FormMethod.Post))
+        {
+			<input type="text" name="from" placeholder="откуда ..." />
+			<input type="text" name="to" placeholder="куда ..." />
+			<input type="text" name="recipient" placeholder="имя и фамилия получателя ..." />
+			<input type="text" name="address"  placeholder="адрес получателя ..." />
+			<input type="text" name="weight" placeholder="вес ..." />
+		    <input type = "submit" name = "submit" value = "Отправить" />
+        }
+		</center>
+	</div>
+	<!-- /FORM -->
+
+        <center>
+            <div id="header">
+                <div id="ava"></div>
+                <div id="self-about">
+                    <p name="name"> @ViewBag.User.FIO </p>
+                    <p name="fare">Тариф <span lite>Lite</span></p>
+                </div>
+                <div id="account">
+                    <p name="acc">Баланс</p>
+                    <p name="acc-state">400 руб.</p>
+                </div>
+            </div>
+
+            <div id="links">
+                <a href="#" class="link" id="makesend">Оформить отправление</a>
+                <a href="#" class="link">Вызов курьера</a>
+            </div>
+
+            <p id = "my-departs">Мои отправления</p>
+            @for(int i = 0; i < ViewBag.Sent.Count; i++)
+            {
+                <div class="sent">
+                    <div class="state" id="sent-1">
+                        <div class="sent-about">
+                            <p class="destination"> @ViewBag.Sent[i].From - @ViewBag.Sent[i].To </p>
+                            <p class="details">
+                                <span yellow>Получатель:</span><span name = "recipient"> @ViewBag.Sent[i].Recipient </span> <br>
+                                <span yellow>Адрес:</span><span name = "address"> @ViewBag.Sent[i].Address </span> <br>
+                                <span yellow>Вес:</span><span name = "weight"> @ViewBag.Sent[i].Mass </span>
+                            </p>
+                        </div>
+                        <div class="sent-cur-place">
+                            <p class="current-place">
+                                <span yellow>Сейчас в:</span><span name = "cur-place"> @ViewBag.Sent[i].CurPos</span> <br>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="info" id="info-1">
+                        <img src="~/images/route.png" name="route">
+                    </div>
+                </div>
+            }
+        </center>
+        <br><br><br><br><br><br>
+    </body>
+</html>
